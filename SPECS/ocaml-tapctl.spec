@@ -2,7 +2,7 @@
 
 Name:           ocaml-tapctl
 Version:        1.1.0
-Release:        6%{?dist}
+Release:        14%{?dist}
 Summary:        Manipulate running tapdisk instances
 License:        LGPL
 URL:            https://github.com/xapi-project/tapctl
