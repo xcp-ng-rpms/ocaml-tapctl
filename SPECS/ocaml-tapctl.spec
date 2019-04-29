@@ -1,14 +1,17 @@
 %global debug_package %{nil}
 
 Name:           ocaml-tapctl
-Version:        1.1.0
-Release:        14%{?dist}
+Version:        1.4.0
+Release:        1%{?dist}
 Summary:        Manipulate running tapdisk instances
 License:        LGPL
 URL:            https://github.com/xapi-project/tapctl
-Source0:        https://code.citrite.net/rest/archive/latest/projects/XSU/repos/tapctl/archive?at=v%{version}&format=tar.gz&prefix=tapctl-%{version}#/tapctl-%{version}.tar.gz
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/tapctl/archive?at=v1.1.0&format=tar.gz&prefix=tapctl-1.1.0#/tapctl-1.1.0.tar.gz) = c6eef52c1f30bdcdaf2d14bf215d5267d38116c1
-BuildRequires:  ocaml-camlp4-devel
+
+Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/tapctl/archive?at=v1.4.0&format=tar.gz&prefix=ocaml-tapctl-1.4.0#/tapctl-1.4.0.tar.gz
+
+
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/tapctl/archive?at=v1.4.0&format=tar.gz&prefix=ocaml-tapctl-1.4.0#/tapctl-1.4.0.tar.gz) = 75c452236a29eb1a05f9f1d4ab3120170d70b31b
+
 BuildRequires:  xs-opam-repo
 BuildRequires:  forkexecd-devel
 
@@ -19,6 +22,7 @@ BuildRequires:  forkexecd-devel
 Manipulate running tapdisk instances on a xen host.
 
 %package        devel
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/tapctl/archive?at=v1.4.0&format=tar.gz&prefix=ocaml-tapctl-1.4.0#/tapctl-1.4.0.tar.gz) = 75c452236a29eb1a05f9f1d4ab3120170d70b31b
 Summary:        Development files for %{name}
 Requires:       %{name} = %{version}-%{release}
 Requires:       forkexecd-devel%{?_isa}
@@ -27,12 +31,12 @@ Requires:       forkexecd-devel%{?_isa}
 The %{name}-devel package contains libraries and signature files for
 developing applications that use %{name}.
 
-%global ocaml_dir /usr/lib/opamroot/system
+%global ocaml_dir /usr/lib/opamroot/ocaml-system
 %global ocaml_libdir %{ocaml_dir}/lib
 %global ocaml_docdir %{ocaml_dir}/doc
 
 %prep
-%autosetup -p1 -n tapctl-%{version}
+%autosetup -p1
 
 %build
 make
@@ -65,6 +69,16 @@ make install OPAM_PREFIX=%{buildroot}%{ocaml_dir} OPAM_LIBDIR=%{buildroot}%{ocam
 %{ocaml_docdir}/xapi-tapctl
 
 %changelog
+* Thu Nov 22 2018 Christian Lindig <christian.lindig@citrix.com> - 1.4.0-1
+- Completed port to dune.
+
+* Thu Nov 01 2018 Christian Lindig <christian.lindig@citrix.com> - 1.3.0-1
+- Update Opam and Travis setup
+
+* Tue Sep 18 2018 Christian Lindig <christian.lindig@citrix.com> - 1.2.0-1
+- Simplify jbuild for PPX processing
+- Use Re.Str instead of deprecated Re_str
+
 * Wed Apr 04 2018 Marcello Seri <marcello.seri@citrix.com> - 1.1.0-6
 - Update SPEC file to get rid of rpmbuild warnings
 
