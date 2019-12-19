@@ -1,16 +1,16 @@
 %global debug_package %{nil}
 
 Name:           ocaml-tapctl
-Version:        1.4.0
-Release:        1%{?dist}
+Version:        1.5.0
+Release:        2%{?dist}
 Summary:        Manipulate running tapdisk instances
 License:        LGPL
 URL:            https://github.com/xapi-project/tapctl
 
-Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/tapctl/archive?at=v1.4.0&format=tar.gz&prefix=ocaml-tapctl-1.4.0#/tapctl-1.4.0.tar.gz
+Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/tapctl/archive?at=v1.5.0&format=tar.gz&prefix=ocaml-tapctl-1.5.0#/tapctl-1.5.0.tar.gz
 
 
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/tapctl/archive?at=v1.4.0&format=tar.gz&prefix=ocaml-tapctl-1.4.0#/tapctl-1.4.0.tar.gz) = 75c452236a29eb1a05f9f1d4ab3120170d70b31b
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/tapctl/archive?at=v1.5.0&format=tar.gz&prefix=ocaml-tapctl-1.5.0#/tapctl-1.5.0.tar.gz) = 6827cad4bebd3e2fbd289a469231bf7570f265d2
 
 BuildRequires:  xs-opam-repo
 BuildRequires:  forkexecd-devel
@@ -22,7 +22,7 @@ BuildRequires:  forkexecd-devel
 Manipulate running tapdisk instances on a xen host.
 
 %package        devel
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/tapctl/archive?at=v1.4.0&format=tar.gz&prefix=ocaml-tapctl-1.4.0#/tapctl-1.4.0.tar.gz) = 75c452236a29eb1a05f9f1d4ab3120170d70b31b
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/tapctl/archive?at=v1.5.0&format=tar.gz&prefix=ocaml-tapctl-1.5.0#/tapctl-1.5.0.tar.gz) = 6827cad4bebd3e2fbd289a469231bf7570f265d2
 Summary:        Development files for %{name}
 Requires:       %{name} = %{version}-%{release}
 Requires:       forkexecd-devel%{?_isa}
@@ -31,7 +31,7 @@ Requires:       forkexecd-devel%{?_isa}
 The %{name}-devel package contains libraries and signature files for
 developing applications that use %{name}.
 
-%global ocaml_dir /usr/lib/opamroot/ocaml-system
+%global ocaml_dir %{_opamroot}/ocaml-system
 %global ocaml_libdir %{ocaml_dir}/lib
 %global ocaml_docdir %{ocaml_dir}/doc
 
@@ -40,6 +40,9 @@ developing applications that use %{name}.
 
 %build
 make
+
+%check
+make test
 
 %install
 mkdir -p %{buildroot}%{ocaml_libdir}
@@ -69,6 +72,13 @@ make install OPAM_PREFIX=%{buildroot}%{ocaml_dir} OPAM_LIBDIR=%{buildroot}%{ocam
 %{ocaml_docdir}/xapi-tapctl
 
 %changelog
+* Fri Aug 23 2019 Edwin Török <edvin.torok@citrix.com> - 1.5.0-2
+- bump packages after xs-opam update
+
+* Thu Aug 15 2019 Christian Lindig <christian.lindig@citrix.com> - 1.5.0-1
+- maintenance: use rpclib instead of rpc
+- travis: update variables
+
 * Thu Nov 22 2018 Christian Lindig <christian.lindig@citrix.com> - 1.4.0-1
 - Completed port to dune.
 
