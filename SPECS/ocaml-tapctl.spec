@@ -2,7 +2,7 @@
 
 Name:           ocaml-tapctl
 Version:        1.5.0
-Release:        3.1%{?dist}
+Release:        3.2%{?dist}
 Summary:        Manipulate running tapdisk instances
 License:        LGPL
 URL:            https://github.com/xapi-project/tapctl
@@ -72,6 +72,9 @@ make install OPAM_PREFIX=%{buildroot}%{ocaml_dir} OPAM_LIBDIR=%{buildroot}%{ocam
 %{ocaml_docdir}/xapi-tapctl
 
 %changelog
+* Tue May 18 2021 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.5.0-3.2
+- Rebuild for xs-opam-repo 6.35.6 and rebuilt forkexecd from XS82E020
+
 * Thu Nov 05 2020 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.5.0-3.1
 - Rebuild for xs-opam-src 6.35.1 from XS82E002
 
