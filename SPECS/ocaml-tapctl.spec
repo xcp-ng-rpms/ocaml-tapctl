@@ -1,28 +1,21 @@
+%global package_speccommit 6497b236c22de00e8398fa589a5e88c9b84b2275
+%global package_srccommit v1.5.1
 %global debug_package %{nil}
 
 Name:           ocaml-tapctl
-Version:        1.5.0
-Release:        5%{?dist}
+Version: 1.5.1
+Release: 2%{?xsrel}%{?dist}
 Summary:        Manipulate running tapdisk instances
-License:        LGPL
+License:        LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception
 URL:            https://github.com/xapi-project/tapctl
-
-Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/tapctl/archive?at=v1.5.0&format=tar.gz&prefix=ocaml-tapctl-1.5.0#/tapctl-1.5.0.tar.gz
-
-
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/tapctl/archive?at=v1.5.0&format=tar.gz&prefix=ocaml-tapctl-1.5.0#/tapctl-1.5.0.tar.gz) = 6827cad4bebd3e2fbd289a469231bf7570f265d2
-
+Source0: tapctl-1.5.1.tar.gz
 BuildRequires:  xs-opam-repo
 BuildRequires:  forkexecd-devel
-
-%global _use_internal_dependency_generator 0
-%global __requires_exclude *caml*
 
 %description
 Manipulate running tapdisk instances on a xen host.
 
 %package        devel
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/tapctl/archive?at=v1.5.0&format=tar.gz&prefix=ocaml-tapctl-1.5.0#/tapctl-1.5.0.tar.gz) = 6827cad4bebd3e2fbd289a469231bf7570f265d2
 Summary:        Development files for %{name}
 Requires:       %{name} = %{version}-%{release}
 Requires:       forkexecd-devel%{?_isa}
@@ -72,6 +65,12 @@ make install OPAM_PREFIX=%{buildroot}%{ocaml_dir} OPAM_LIBDIR=%{buildroot}%{ocam
 %{ocaml_docdir}/xapi-tapctl
 
 %changelog
+* Thu Feb 23 2023 Pau Ruiz Safont <pau.ruizsafont@cloud.com> - 1.5.1-2
+- Change license to match source repo
+
+* Mon Feb 20 2023 Pau Ruiz Safont <pau.ruizsafont@cloud.com> - 1.5.1-1
+- Same as 1.5.0, koji tooling needed an annotated tag to build
+
 * Mon Sep 27 2021 Pau Ruiz Safont <pau.safont@citrix.com> - 1.5.0-5
 - Bump package after xs-opam update
 
