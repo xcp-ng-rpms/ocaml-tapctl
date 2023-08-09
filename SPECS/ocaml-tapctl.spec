@@ -1,10 +1,10 @@
-%global package_speccommit 6497b236c22de00e8398fa589a5e88c9b84b2275
+%global package_speccommit eaf1f567faea9de269ecc0336bec012848c1f604
 %global package_srccommit v1.5.1
 %global debug_package %{nil}
 
 Name:           ocaml-tapctl
 Version: 1.5.1
-Release: 2.1%{?xsrel}%{?dist}
+Release: 7.1%{?xsrel}%{?dist}
 Summary:        Manipulate running tapdisk instances
 License:        LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception
 URL:            https://github.com/xapi-project/tapctl
@@ -65,6 +65,20 @@ make install OPAM_PREFIX=%{buildroot}%{ocaml_dir} OPAM_LIBDIR=%{buildroot}%{ocam
 %{ocaml_docdir}/xapi-tapctl
 
 %changelog
+* Wed Aug 09 2023 Gael Duperrey <gduperrey@vates.fr> - 1.5.1-7.1
+- Sync with hotfix XS82ECU1040
+- *** Upstream changelog ***
+- * Thu Jul 20 2023 Rob Hoes <rob.hoes@citrix.com> - 1.5.1-7
+- - Bump release and rebuild
+- * Mon Jun 19 2023 Christian Lindig <christian.lindig@citrix.com> - 1.5.1-6
+- - Bump release and rebuild
+- * Thu Jun 08 2023 Christian Lindig <christian.lindig@citrix.com> - 1.5.1-5
+- - Bump release and rebuild
+- * Fri May 12 2023 Christian Lindig <christian.lindig@citrix.com> - 1.5.1-4
+- - Bump release and rebuild
+- * Fri May 12 2023 Christian Lindig <christian.lindig@citrix.com> - 1.5.1-3
+- - Bump release and rebuild
+
 * Fri Apr 14 2023 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.5.1-2.1
 - *** Upstream changelog ***
 - * Thu Feb 23 2023 Pau Ruiz Safont <pau.ruizsafont@cloud.com> - 1.5.1-2
