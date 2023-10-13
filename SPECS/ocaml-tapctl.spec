@@ -1,10 +1,10 @@
-%global package_speccommit eaf1f567faea9de269ecc0336bec012848c1f604
+%global package_speccommit 8a7f38f3aad5a45756277f3f591747c0e6e3e7a3
 %global package_srccommit v1.5.1
 %global debug_package %{nil}
 
 Name:           ocaml-tapctl
 Version: 1.5.1
-Release: 7.1%{?xsrel}%{?dist}
+Release: 8.1%{?xsrel}%{?dist}
 Summary:        Manipulate running tapdisk instances
 License:        LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception
 URL:            https://github.com/xapi-project/tapctl
@@ -65,6 +65,13 @@ make install OPAM_PREFIX=%{buildroot}%{ocaml_dir} OPAM_LIBDIR=%{buildroot}%{ocam
 %{ocaml_docdir}/xapi-tapctl
 
 %changelog
+* Fri Oct 13 2023 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.5.1-8.1
+- Rebuild after sync with hotfix XS82ECU1049
+- No source changes: only rebuild for dependencies
+- *** Upstream changelog ***
+- * Mon Oct 02 2023 Pau Ruiz Safont <pau.ruizsafont@cloud.com> - 1.5.1-8
+- - Bump release and rebuild
+
 * Wed Aug 09 2023 Gael Duperrey <gduperrey@vates.fr> - 1.5.1-7.1
 - Sync with hotfix XS82ECU1040
 - *** Upstream changelog ***
