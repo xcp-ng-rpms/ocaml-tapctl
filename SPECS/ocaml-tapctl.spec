@@ -1,10 +1,10 @@
-%global package_speccommit 8a7f38f3aad5a45756277f3f591747c0e6e3e7a3
+%global package_speccommit d1317a1b321c54125f3bf4356c85ed8b27efaecf
 %global package_srccommit v1.5.1
 %global debug_package %{nil}
 
 Name:           ocaml-tapctl
 Version: 1.5.1
-Release: 8%{?xsrel}%{?dist}
+Release: 15%{?xsrel}%{?dist}
 Summary:        Manipulate running tapdisk instances
 License:        LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception
 URL:            https://github.com/xapi-project/tapctl
@@ -65,6 +65,27 @@ make install OPAM_PREFIX=%{buildroot}%{ocaml_dir} OPAM_LIBDIR=%{buildroot}%{ocam
 %{ocaml_docdir}/xapi-tapctl
 
 %changelog
+* Fri Mar 08 2024 Christian Lindig <christian.lindig@cloud.com> - 1.5.1-15
+- Bump release and rebuild
+
+* Wed Mar 06 2024 Christian Lindig <christian.lindig@cloud.com> - 1.5.1-14
+- Bump release and rebuild
+
+* Tue Mar 05 2024 Christian Lindig <christian.lindig@cloud.com> - 1.5.1-13
+- Bump release and rebuild
+
+* Fri Nov 03 2023 Christian Lindig <christian.lindig@cloud.com> - 1.5.1-12
+- Bump release and rebuild
+
+* Tue Oct 24 2023 Christian Lindig <christian.lindig@cloud.com> - 1.5.1-11
+- Bump release and rebuild
+
+* Tue Oct 24 2023 Christian Lindig <christian.lindig@cloud.com> - 1.5.1-10
+- Bump release and rebuild
+
+* Wed Oct 18 2023 Christian Lindig <christian.lindig@cloud.com> - 1.5.1-9
+- Bump release and rebuild
+
 * Mon Oct 02 2023 Pau Ruiz Safont <pau.ruizsafont@cloud.com> - 1.5.1-8
 - Bump release and rebuild
 
